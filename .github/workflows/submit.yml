@@ -184,7 +184,10 @@ jobs:
         working-directory: jdk
 
       - name: Build
-        run: make CONF_NAME=linux-x64
+        run: |
+          make CONF_NAME=linux-x64
+          echo "-------- where are the bundles? --------"
+          find .. -name '*internal*' -print
         working-directory: jdk
 
       - name: Persist test bundles
